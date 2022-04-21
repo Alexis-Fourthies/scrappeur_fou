@@ -32,10 +32,10 @@ end
 #stocker tout ça dans un fichier texte
 
 def fichiertxt(hash)
-    fname = "dark_trader.txt"
-    somefile = File.open(fname, "w")
-    somefile.puts hash
-    somefile.close
+    filename = "dark_trader.txt"
+    file = File.open(filename, "w")
+    file.puts hash
+    file.close
     puts "Le fichier texte est prêt"
 end
 
