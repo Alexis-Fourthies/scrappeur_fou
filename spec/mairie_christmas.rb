@@ -1,0 +1,1 @@
+require relative '../lib/mairie_christmas'
