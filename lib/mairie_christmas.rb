@@ -6,7 +6,7 @@ require 'open-uri'
 def get_emails(url)
 	page = Nokogiri::HTML(URI.open(url))
 	scrap = page.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]')
-	scrap.each do |node| return "Mail:" + node.text
+	scrap.each do |node| return "Mail : " + node.text
 	end
 end
 
@@ -19,18 +19,18 @@ def scrap_mairies(url)
 	scrap.each do |node|
 		city = node.text.split.each do |text| text.capitalize!
 		end
-		city = "Ville: " + city * "-"
-		url = 'http://annuaire-des-mairies.com' + node['href'].slice!(1..-1)
+		city = "Ville : " + city * "-"
+		url = 'http://annuaire-des-mairies.com/' + node['href'].slice!(1..-1)
 		
-		mail = get_emails(url)
+		email = get_emails(url)
 		
-		h.store(city,mail)
+		h.store(city,email)
 	end
 #stocker tout ça dans un fichier texte
-	fname = "mairie_christmas.txt"
-	somefile = File.open(fname,"w")
-	somefile.puts h
-	somefile.close
+	filename = "mairie_christmas.txt"
+	file = File.open(filename,"w")
+	file.puts h
+	file.close
     puts "Le fichier texte est prêt"
 end
 

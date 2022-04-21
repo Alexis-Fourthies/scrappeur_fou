@@ -16,8 +16,8 @@ end
 def scrap_cryptos(page)
     array_name=[]
     array_value=[]
-    name_of_crypto=page.xpath('//tr//td[3]')
-    value_of_crypto=page.xpath('//tr//td[5]')
+    name_of_crypto=page.xpath('/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div[2]/div[3]/div/table/tbody/tr[*]/td[3]/div')
+    value_of_crypto=page.xpath('/html/body/div[1]/div[1]/div[2]/div/div[1]/div/div[2]/div[3]/div/table/tbody/tr[*]/td[5]/div/a/span')
     hash={}
     name_of_crypto.each{ |name|
         array_name<<name.text
